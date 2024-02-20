@@ -19,12 +19,12 @@ public class Player_Movement : MonoBehaviour
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        // Check if the player is moving and play audio
+
         if (movementDirection.magnitude > 0.1f && !audioSource.isPlaying)
         {
             audioSource.Play();
         }
-        // If the player is not moving, stop the audio
+
         else if (movementDirection.magnitude < 0.1f && audioSource.isPlaying)
         {
             audioSource.Stop();
