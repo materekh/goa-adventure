@@ -7,7 +7,7 @@ public class health : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-    public List<GameObject> heartsList;
+    [SerializeField] public List<GameObject> heartsList;
 
     void Start()
     {
@@ -27,8 +27,8 @@ public class health : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        for (int heart = 5; heart != 0; heart--)
-        {
+        if(heartsList.Count>0){
+            Destroy(heartsList[heartsList.Count - 1]);
             heartsList.RemoveAt(heartsList.Count - 1);
         }
     }
