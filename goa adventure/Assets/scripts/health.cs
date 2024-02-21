@@ -17,7 +17,7 @@ public class health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             TakeDamage(20);
         }
@@ -27,12 +27,12 @@ public class health : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if(heartsList.Count>0){
+        if (heartsList.Count > 0)
+        {
             Destroy(heartsList[heartsList.Count - 1]);
             heartsList.RemoveAt(heartsList.Count - 1);
         }
     }
-
     void Die()
     {
         if (currentHealth <= 0)

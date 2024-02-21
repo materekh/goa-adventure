@@ -8,10 +8,10 @@ public class camera_controler : MonoBehaviour
 
     void Update()
     {
-        // Keep the original Z position of the camera
-        float originalZ = transform.position.z;
-
-        // Set the new position based on the player's X and Y position
-        transform.position = new Vector3(player.position.x, player.position.y, originalZ);
+        if (transform != null)
+        {
+            float originalZ = transform.position.z;
+            transform.position = new Vector3(player.position.x, player.position.y, originalZ);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
@@ -17,17 +18,20 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
-
-        if (movementDirection.magnitude > 0.1f && !audioSource.isPlaying)
+        if(movementDirection != null)
         {
-            audioSource.Play();
-        }
+            movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        else if (movementDirection.magnitude < 0.1f && audioSource.isPlaying)
-        {
-            audioSource.Stop();
+
+            if (movementDirection.magnitude > 0.1f && !audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+
+            else if (movementDirection.magnitude < 0.1f && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
     }
 
